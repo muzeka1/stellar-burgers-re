@@ -51,12 +51,12 @@ export const updateUserThunk = createAsyncThunk(
 export const logoutUserThunk = createAsyncThunk(
     'user/logoutUser',
     async () => {
-        logoutApi().then((res) => {
-            if (res.success) {
-                deleteCookie('accessToken');
-                localStorage.removeItem('refreshToken');
-            }
-        })
+        const res = await logoutApi();
+        if (res.success) {
+            deleteCookie('accessToken');
+            localStorage.removeItem('refreshToken');
+        }
+        return res;
     }
 )
 

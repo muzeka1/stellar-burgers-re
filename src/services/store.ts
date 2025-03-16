@@ -9,11 +9,11 @@ import {
   useSelector as selectorHook
 } from 'react-redux';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   user: userReducer,
   ingredients: ingredientsReducer,
   orders: orderReducer
-}); // Заменить на импорт настоящего редьюсера
+});
 
 const store = configureStore({
   reducer: rootReducer,
